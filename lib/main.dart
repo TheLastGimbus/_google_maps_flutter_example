@@ -76,24 +76,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   // Doesn't care about padding
                   setCamera();
 
-                  // This doesn't fix anything :/
-                  setState(() {});
-
-                  // Nor this
-                  Future.microtask(() {
-                    setCamera();
-                    setState(() {});
-                  });
-
-                  // THIS FINALLY FIXES STUFF
-                  // You can set the duration to one seconds to see result,
-                  // But it also works with ~1ms
-                  // UPDATE: I tried on emulator, and because it's slow, values
-                  // <1000ms didn't work :c  - so that's not a good solution
-                  Future.delayed(Duration(milliseconds: 1), () {
-                    setCamera();
-                    setState(() {});
-                  });
+                  // // This doesn't fix anything :/
+                  // setState(() {});
+                  //
+                  // // Nor this
+                  // Future.microtask(() {
+                  //   setCamera();
+                  //   setState(() {});
+                  // });
+                  //
+                  // // THIS FINALLY FIXES STUFF
+                  // // You can set the duration to one seconds to see result,
+                  // // But it also works with ~1ms
+                  // // UPDATE: I tried on emulator, and because it's slow, values
+                  // // <1000ms didn't work :c  - so that's not a good solution
+                  // Future.delayed(Duration(milliseconds: 1), () {
+                  //   setCamera();
+                  //   setState(() {});
+                  // });
                 },
               ),
             ),
